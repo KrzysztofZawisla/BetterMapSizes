@@ -12,11 +12,18 @@
     </supportedVersions>
     <packageId>snowdrop.custommapsizescontinued</packageId>
     <description>
-        Enables custom map sizes through the mod setting menu. DO NOT USE ADVANCED MENU DURING WORLD GENERATION!
+                Enables custom map sizes through the Advanced menu on the world map during map generation.
+        Also, allows for setting the default map size to use when generating tiles (in case you forget to use the Advanced menu). 
+
+        Important note!:
+
+        Making changes in the advanced menu impacts mod settings too.
 
         Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2099101052
         Fork: https://github.com/KrzysztofZawisla/BetterMapSizes/tree/snowdrop-version
         Original Source Code: https://github.com/MadaraUchiha/BetterMapSizes
+
+        Have fun and fork something outdated!
     </description>
     <modDependencies>
         <li>
