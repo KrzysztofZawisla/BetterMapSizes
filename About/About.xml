@@ -17,11 +17,14 @@
 
         Important note!:
 
-        Making changes in the advanced menu impacts mod settings too.
+        Making changes in the advanced menu impacts mod settings too. 
+        Mod settings are applied as long as you don't enter advanced settings. When you already enter it, modify value to what you want. 
 
         Original mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2099101052
         Fork: https://github.com/KrzysztofZawisla/BetterMapSizes/tree/snowdrop-version
         Original Source Code: https://github.com/MadaraUchiha/BetterMapSizes
+
+        In case of some bugs let me know here, or on the GitHub.
 
         Have fun and fork something outdated!
     </description>
