@@ -55,10 +55,10 @@ namespace CustomMapSizes.HarmonyPatches
             listing.Label("CMS_Custom".Translate());
             // Marked as deprecated. But this is what the game uses.
             string customLabel = "CMS_CustomLabel".Translate(CustomMapSizesMain.mapWidth, CustomMapSizesMain.mapHeight, CustomMapSizesMain.mapWidth * CustomMapSizesMain.mapHeight);
-#pragma warning disable 612, 618
+        #pragma warning disable 612, 618
             if (listing.RadioButton(customLabel, Find.GameInitData.mapSize == -1))
-#pragma warning restore 612, 618
-
+        #pragma warning restore 612, 618
+        
             {
                 Find.GameInitData.mapSize = -1;
             }
@@ -67,6 +67,15 @@ namespace CustomMapSizes.HarmonyPatches
                 listing.Gap(5f);
                 listing.TextFieldNumericLabeled("CMS_Width".Translate(), ref CustomMapSizesMain.mapWidth, ref CustomMapSizesMain.mapWidthBuffer);
                 listing.TextFieldNumericLabeled("CMS_Height".Translate(), ref CustomMapSizesMain.mapHeight, ref CustomMapSizesMain.mapHeightBuffer);
+                
+                // Update settings when values change
+                var mod = LoadedModManager.GetMod<CustomMapSizesMain>();
+                mod.settings.customMapSizeWidth = CustomMapSizesMain.mapWidth;
+                mod.settings.customMapSizeHeight = CustomMapSizesMain.mapHeight;
+                mod.settings.customMapSizeWidthBuffer = CustomMapSizesMain.mapWidthBuffer;
+                mod.settings.customMapSizeHeightBuffer = CustomMapSizesMain.mapHeightBuffer;
+                mod.settings.selectedMapSize = -1;
+                mod.settings.Write();
             }
             listing.NewColumn();
         }

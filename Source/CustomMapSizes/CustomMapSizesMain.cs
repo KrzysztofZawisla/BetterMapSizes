@@ -21,6 +21,10 @@ namespace CustomMapSizes
         public CustomMapSizesMain(ModContentPack content) : base(content)
         {
             settings = GetSettings<CustomMapSizesSettings>();
+            mapHeight = settings.customMapSizeHeight;
+            mapWidth = settings.customMapSizeWidth;
+            mapHeightBuffer = settings.customMapSizeHeightBuffer;
+            mapWidthBuffer = settings.customMapSizeWidthBuffer;
             var harmony = new Harmony($"{nameof(CustomMapSizes)}.{nameof(CustomMapSizesMain)}");
 
             harmony.PatchAll();
@@ -31,6 +35,11 @@ namespace CustomMapSizes
             mapWidth = settings.customMapSizeWidth;
             mapHeightBuffer = settings.customMapSizeHeightBuffer;
             mapWidthBuffer = settings.customMapSizeWidthBuffer;
+            // Ensure game init data is consistent
+            if (Find.GameInitData != null && settings.selectedMapSize == -1)
+            {
+                Find.GameInitData.mapSize = -1;
+            }
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
